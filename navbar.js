@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	//Load the navbar
-	$('#navigation').load("/navbar.html");
+	$('#navigation').load("/portfolio/navbar.html");
 	
 	//Add headings to the navbar
 	headings = $("h1");
