@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="/portfolio/style.css">
+		<link rel="stylesheet" href="project.css">
+		<title>Multi Purpose Controller</title>
+	</head>
+	<body>
+		<div id="navigation"></div>
+		<header>Multi Purpose Controller</header>
+		
+		<div class="container-xl">
+			<div class="row pt-2">
+				<h1 id="description">Description</h1>
+				<p>
+					This is a wireless controller that can be used with multiple devices and projects (eg my <a href="drone.html">drone</a>) using an ATmega644A.<br />
+					During the development of my drone I needed a wireless controller. Instead of making a controller just for that project I decided to make a controller that can be used for other projects saving me time and allowing me to use an already tested controller for future projects.<br />
+					The design allows for expansion in the future without rebuilding and flexibility for use in different situations.
+				</p>
+			</div>
+			
+			<div class="row pt-3">
+				<h1 id="skills">Skills</h1>
+				<ul>
+					<li>Electronics and designing circuits</li>
+					<li>3D modelling and printing</li>
+					<li>Wireless communication</li>
+					<li>Programming hardware</li>
+				</ul>
+			</div>
+			
+			<div class="row pt-3">
+				<h1 id="features">Closer look</h1>
+				<h3>Inputs</h3>
+				<p>
+					The controller has a wide range of inputs, suitable for multiple projects<br />
+					<img class="main-picture" src="/portfolio/img/controller/inputs.jpg" />
+				</p>
+				<h3>Circuit Diagram</h3>
+				<p>
+					This is the circuit which uses an ATmega644A, chosen due to the large number of pins needed, most of which are utilised<br />
+					<img class="side-picture" src="https://github.com/MSchmidt951/Multi-Purpose-Controller/blob/main/images/circuitdiagram_highres.png?raw=true" /> <button onclick="$('#circuit-diagram').toggle()">Expand</button>
+					<img id="circuit-diagram" src="https://github.com/MSchmidt951/Multi-Purpose-Controller/blob/main/images/circuitdiagram_highres.png?raw=true" style="display:none;" />
+				</p>
+				<h3>RGB LED</h3>
+				<p>
+					The LED colour gives an intuitive understanding of the status of the controller
+					<table style="max-width:300px;">
+						<thead>
+							<tr>
+								<th>LED colour</th>
+								<th>Meaning</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="color:red">Red</td>
+								<td>Initialising or aborted</td>
+							</tr>
+							<tr>
+								<td style="color:orange">Orange</td>
+								<td>Waiting for other device</td>
+							</tr>
+							<tr>
+								<td style="color:blue">Blue</td>
+								<td>Standby mode</td>
+							</tr>
+							<tr>
+								<td style="color:green">Green</td>
+								<td>Sending data</td>
+							</tr>
+						</tbody>
+					</table>
+					<br />
+				</p>
+				<h3>Modular expandability</h3>
+				<p>
+					The controller has a UART connector allowing for add-ons<br />
+					<img class="side-picture" src="/portfolio/img/controller/uartConnector.jpg" />
+				</p>
+			</div>
+			
+			<div class="row pt-3">
+				<h1 id="creating">Creating the Project</h1>
+				<h3>Prototype Circuit</h3>
+				<p>
+					This is the prototype board I made for the controller which uses an Arduino Nano:<br />
+					<img class="main-picture" src="/portfolio/img/controller/protoCircuit.jpg" /><br /><br />
+					Validation that the overall design worked.<br />
+				</p>
+				<div class="col-6">
+					Lessons learned from the prototype:
+					<ul>
+						<li>Limited inputs</li>
+						<li>No expandability</li>
+						<li>Limited feedback to the user</li>
+					</ul>
+				</div>
+				<h3>Prototype 3D Prints</h3>
+				<p>
+					I did a few prototype prints in order to get correct dimensions, strength and endurance.<br />
+					<div class="col-6">
+						<img class="main-picture" src="/portfolio/img/controller/protoPrintA.jpg" /><br />
+						Improvements for next print:
+						<ul>
+							<li>Larger holes</li>
+							<li>Thicker joystick stand</li>
+							<li>Thicker base</li>
+						</ul>
+					</div>
+					<div class="col-6">
+						<img class="main-picture" src="/portfolio/img/controller/protoPrintB.jpg" /><br />
+						Improvements for next print:
+						<ul>
+							<li>Potentiometer higher up</li>
+							<li>Slight adjustment of hole positions</li>
+						</ul>
+					</div>
+				</p>
+				<h3>Final Circuit</h3>
+				<p>
+					Utilising the knowledge from the prototypes (above) I re-designed the controller.<br /><br />
+					The fully soldered new board:<br />
+					<img class="main-picture" src="https://github.com/MSchmidt951/Multi-Purpose-Controller/blob/main/images/perfboard.jpg?raw=true" /><br />
+					Note colour coded wires for aesthetics and easy identification<br />
+					<br />
+					The fully functional controller:<br />
+					<img class="main-picture" src="/portfolio/img/controller/icon.jpg" />
+				</p>
+			</div>
+			
+			<div class="row pt-3">
+				<h1 id="future">Looking forward</h1>
+				<ul>
+					<li>I have used this reliably with my drone and it works without any problems</li>
+					<li>Later I will add attachment points to support extensions and the code to support them</li>
+					<li>I could add a grip which would improve ergonomics and allow triggers to be added</li>
+				</ul>
+			</div>
+			
+			<div class="row pt-3">
+				<h1 id="files">Files and Links</h1>
+				<a href="https://github.com/MSchmidt951/Multi-Purpose-Controller">GitHub repository</a>
+			</div>
+		</div>
+		
+		<footer></footer>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="/portfolio/navbar.js"></script>
+	</body>
+</html>
