@@ -1,0 +1,47 @@
+p {
+	margin-left: 5px;
+}
+
+.row > ul {
+	margin-left: 20px;
+}
+
+.col-6 {
+	margin-left: 5px;
+	margin-right: -5px;
+}
+
+/* Tables */
+
+table, th, td {
+	margin-left: 17px;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 3px;
+}
+
+th {
+	text-align: center;
+}
+
+/* Pictures */
+
+.large-picture {
+	border: 1px solid gray;
+	max-height: 90vh;
+}
+
+.main-picture {
+	border: 1px solid gray;
+	max-height: 50vh;
+}
+
+.side-picture {
+	border: 1px solid gray;
+	max-width: 49%;
+	max-height: 33vh;
+	margin-right: 2px;
+}
