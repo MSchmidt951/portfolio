@@ -14,21 +14,59 @@
 			<div class="row pt-2">
 				<h1 id="description">Description</h1>
 				<p>
-					A program that visualises my implementation of the A-star pathfinding algorithm in Python.
+					A program that visualises my implementation of the A-star pathfinding algorithm in Python.<br />
+					The user can chose the start and target point. Then the algorithm finds an efficient path between those two points then the path is shown to the user as the algorithm works.<br />
+					When a path has been found it will be displayed on the screen as a red line going from the starting node (blue) to the target node (pink).<br />
+					Here is an example of the program working:
+					<img class="main-picture" src="/portfolio/img/example.gif" />
 				</p>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="skills">Skills</h1>
 				<ul>
-					<li>Documentation coming soon!</li>
+					<li>Object oriented programming in Python</li>
+					<li>Use of the pathfinding algorithm A-star</li>
+					<li>Creation of user-friendly design</li>
 				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="features">Closer look</h1>
+				<h3>Algorithm Explanation</h3>
 				<p>
-					Documentation coming soon!
+					The screen is split into a grid of nodes. Each node has a position which correlates to a section of the grid.<br />
+					The cost is the penalty which is the sum two items: the distance to the target node and the length of the path from the start node.<br />
+					They also store the previous node in the path.<br />
+					<br />
+					To start the algorithm, a StartNode object is created at the starting position. The only difference from a normal node is that it does not have a previous node.<br />
+					This is then set as the current node.<br />
+					<br />
+					Then the current node calls the function getNeighbours.<br />
+					This function checks each adjacent square in the grid.<br />
+					To check if the neighbour is valid it checks:<br />
+					 • It is not a wall<br />
+					 • It is not discovered<br />
+					 • It is within the grid<br />
+					The neighbours are added to the discovered nodes and the current nodes are moved from the discovered nodes to the visited nodes.<br />
+					The code compares the cost of the discovered nodes and chooses the node with the lowest cost to check next.<br />
+					This process is repeated until the target node has been found.<br />
+					<br />
+					When the target node has been found, the path is traced back by looking recursively at each node's previous node until the starting node is reached. This is the path that the algorithm has found, displayed in red.
+				</p>
+				
+				<h3>Obstacle avoidance</h3>
+				<p>
+					Walls are obstacles that the algorithm cannot go through. They are stored as a list of coordinates which correlate to the grid.<br />
+					I decided to include them in the program so the path will not be a straight line, providing different scenarios for the algorithm.<br />
+					I used random Perlin noise which allows different structures of walls to be generated without the user having to come up with their own paths.<br />
+					I used Perlin noise rather than normal noise as this groups wall sections together creating a maze-like pattern.
+				</p>
+				
+				<h3>Adjusting settings</h3>
+				<p>
+					I added user-friendly interaction with the program to easily use and adjust the algorithm and what environment it is in while the program is running, rather than having to stop the program, edit variables and launch the program again.<br />
+					For example the user can add and delete walls manually, change the seed used to generate the walls, how many walls are generated and change the behaviour of the algorithm.
 				</p>
 			</div>
 			
