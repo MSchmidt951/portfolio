@@ -14,28 +14,92 @@
 			<div class="row pt-2">
 				<h1 id="description">Description</h1>
 				<p>
-					Tank Colosseum is a top down 2D game where 2-4 players battle eachother in tanks. Inspired by Tank Trouble.
+					Tank Colosseum is a top down 2D game where 2-4 players battle each other in tanks. Inspired by Tank Trouble.
+					<div class="col-4">
+						<img class="main-picture" src="/portfolio/img/tank/icon.jpg" />
+					</div>
+					<div class="col-8">
+						The game is played in rounds where the last tank alive wins.<br />
+						Each round the tanks will spawn in random locations on a random map.<br />
+						The game also has powerups which spawn in random locations and can be picked up by moving over them.<br />
+						Powerups allow for the tank to temporarily gain a new turret which shoots special bullets.
+					</div>
 				</p>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="skills">Skills</h1>
 				<ul>
-					<li>Documentation coming soon!</li>
+					<li>GUI (Graphical User Interface) and 2D graphics</li>
+					<li>Use of third-party libraries (pygame)</li>
+					<li>Game design</li>
+					<li>Image and json file handling</li>
+					<li>Use of multiple source files to organise code</li>
 				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="features">Closer look</h1>
 				<p>
-					Documentation coming soon!
+					I split each component of the game into multiple source files, which makes the code easier to understand and work on.<br />
 				</p>
+				<h3>Levels</h3>
+				<p>
+					level.py handles some of the core aspects of the game, such as controlling the screen and handling rounds, mostly with the Level class.<br />
+					The Level class handles setting up new rounds, including getting the next level, outputting the scores and resetting the tanks.<br />
+					All of these are split into their own methods so that the main loop and the general flow of the code is easy to understand.<br />
+					The Level class controls the levels by importing the settings and images then drawing them to the screen.<br />
+					The settings are stored in json files making the game more flexible and allowing for custom game modes to be created.<br />
+					In level.py there is also a class called FPS_Handler which monitors and limits the FPS (frames per second). Although this is a simple class it makes the handling of the FPS much easier to understand.
+				</p>
+				<h3>Sprites</h3>
+				<p>
+					A sprite is a 2D image which appears on the screen and performs a role, for example the sprites in this game are the tanks, bullets and powerups.<br />
+					sprite.py includes the Sprite class which acts as a base for the other sprites, defining common functions for other classes.<br />
+					The movement system defined in this class consists of moving forward/backward, rotating and collisions. In the update method the sprite is drawn on the screen.<br />
+					sprite.py also contains the SpriteHandler class, which stores all of the sprites in the game.<br />
+					It stores them in groups which makes the handling of sprites more accessable. Additionaly it has functions for adding and removing sprites providing a standard way of using the sprites across the program.
+				</p>
+				<h3>Tanks</h3>
+				<p>
+					The Tank class handles user input through a method called processInput, which chooses a function (eg moving, shooting) to execute depending on the input.<br />
+					This gives a standard interface to give controls to any tank and allows the controls to be changed in one place.<br />
+					Bullets of a cetrain tank are handled through only one method named shoot. This method is called the same way even if the tank has a powerup as it decides what type of bullet is shot and handles things such as ammunition.<br />
+				</p>
+				<h3>Powerups</h3>
+				<p>
+					Random powerups spawn in random locations and can be picked up by moving over them.<br />
+					Powerups allow for the tank to temporarily gain a new turret which shoots special bullets.<br />
+					Spawning a powerup is done with a simple method createPowerup which handles type, location and timing.<br />
+					The drone is a power up which spawns a drone that can fly over walls and shoot other tanks. This gives players a unique advantage over other powerups as they cannot escape from the drone which can create interesting gameplay.
+				</p>
+				<h3>Bullets</h3>
+				<p>
+					As there are different types of bullets with different characteristics due to powerups each type of bullet has a different class.<br />
+					All types of bullets use the same methods but some have differing characteristics. This allows for compatibility when adding new bullet types.<br />
+					The characteristics of each type of bullet is stored in a json file which is more user friendly than changing it in the code. This allows the configuration to be changed without having to re-build the code.<br />
+					For powerups that spawn their own bullets (eg drones) I created a class called Bullet_Controller. This handles shooting bullets, shot cooldown and ammunition.
+				</p>
+				<h3>Game</h3>
+				<p>
+					With all of the classes and files discussed above the game has all of the sections needed.
+					The file "Tank Colosseum.py" runs the game and does the following:
+				</p>
+				<ul>
+					<li>Imports all sections of the game</li>
+					<li>Initialises each section</li>
+					<li>Contains the main loop which handles events, passing user inputs to the tanks and updating classes</li>
+					<li>Handles exiting the game</li>
+				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="future">Looking forward</h1>
+				Having all of the core gameplay elements completed I still have some additional extras that I could implement:
 				<ul>
-					<li>Documentation coming soon!</li>
+					<li>Add bouncing bullets, this will allow more strategies to be used by players making the game more interesting and enjoyable</li>
+					<li>Add title screen which will make the game more complete and allow users to select the number of players without having to edit a text file</li>
+					<li>Add an AI enemy for a new singleplayer mode</li>
 				</ul>
 			</div>
 			
