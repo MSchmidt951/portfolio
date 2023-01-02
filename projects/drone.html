@@ -14,35 +14,85 @@
 			<div class="row pt-2">
 				<h1 id="description">Description</h1>
 				<p>
-					<b>This page is not finished yet but shows some what I have done.</b><br /><br />
-					A quadcopter drone with auto-levelling capabilities.<br />
-					The drone uses four brushless motors with propellers which adjust their thrust in order to keep upright.<br />
+					<b>This page (and project) is not finished but shows most of what I have done.</b><br /><br />
+					The aim of this project was to design and build a quadcopter drone where I would use as few pre-made components as possible.
+					This included creating the software and circuit board of the flight controller, a frame which can be made with little to no tools and choosing pre-made components (e.g. motors & propellers) which work well together for optimal performance.<br />
+					I used an iterative approach to the development.
+					This allowed me to test different ideas to gain a greater understanding of how different parameters affected performance in a real world environment.
+					This approach enabled me to be flexible in the design to get the best optimisation possible.<br />
 				</p>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="skills">Skills</h1>
+				<p>
+					When I started this project, I knew very little about how drones worked and I enjoyed learning about different components and how they work together.<br />
+					I learned general skills that can be used in any project, listed below:
+				</p>
 				<ul>
-					<li>Electronics and designing circuits</li>
-					<li>3D modelling and printing</li>
-					<li>Iterative prototyping</li>
-					<li>Wireless communication</li>
+					<p>I learned general skills that can be used in any project, listed below:</p>
+					<li>One of the most important skills I gained is what the process of creating and developing projects like this entails.
+					Alongside this I learned how to approach not only the build but also how to solve problems and set-backs during the development.</li>
+					<li>I greatly improved at finding the causes and solutions to problems and how to map out potential issues to avoid them.</li>
+					<li>Collecting and interpreting data to inform decisions and troubleshoot issues allowed me to recognise aspects to be changed that would not be visible without that data.</li>
+					<li>Segmenting the project allowed different parts to be worked on separately without having to change other parts, for example: different files of code working together and modular 3D printed parts.
+					This can lead to use of these segments on other projects, some parts being specifically designed for multipurpose use.</li>
+				</ul>
+				<br />
+				<ul>
+					<p>Here are the more specific skills used in the project:</p>
+					<li>Design and assembly of printed circuit boards (PCBs), including switching regulators.</li>
+					<li>Designing 3D printed objects to withstand different environments and stresses.</li>
+					<li>How to read datasheets and use them to influence component selection.</li>
+					<li>Reading and using datasheets to influence component selection and aid in the use of components.</li>
+					<li>Optimising code for speed and storage space.</li>
+					<li>Understanding how different sensors work and how to use them. Along with this I learned about optimising them and using filters e.g. Kalman filters.</li>
+					<li>What PID control is and how to use it.</li>
 				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="features">Closer look</h1>
 				<p>
-					An old version of my drone.<br />
-					<img class="main-picture" src="/portfolio/img/drone/DroneOld.jpg" /> <br />
+					The drone flies by spinning four propellers with brushless motors.<br />
+					The flight controller uses sensors to get the state of the drone (eg rotation) then calculates what speeds the induvidual motors need to spin at in order get to the state it wants to be in.<br />
+					Then the flight controller sends a signal to the electronic speed controllers (ESCs) to set the motor speed.<br />
 					<br />
-					The current version of my drone.<br />
-					<img class="main-picture" src="/portfolio/img/drone/DroneCover.jpg" />
-					<img class="main-picture" src="/portfolio/img/drone/DroneBottom.jpg" /> <br />
+					Diagram showing the main components of the drone and how they are connected:<br />
+					<img class="main-picture" src="/portfolio/img/drone/.jpg" /> <br />
 					<br />
-					An image of the next version of my drone frame in blender.<br />
+					Different sections of the project are: flight controller, frame, propulsion and main circuit, explained below.
+				</p>
+				<p>
+					Some pictures of the latest version of the drone
+					<img class="side-picture" src="/portfolio/img/drone/DroneCover.jpg.jpg" />
+					<img class="side-picture" src="/portfolio/img/drone/DroneBottom.jpg.jpg" /><br />
+					<img class="main-picture" src="/portfolio/img/drone/.jpg" /> Drone in flight<br />
+					<img class="main-picture" src="/portfolio/img/drone/.jpg" /> Flight controller<br />
+				</p>
+				<p>
+					Old versions of my drone.<br />
+					<img class="main-picture" src="/portfolio/img/drone/DroneOld.jpg" />
+				</p>
+				<h1>Pictures of some what I have done so far</h1>
+				
+				<h2>Frame</h2>
+				<p>
+					An 3D model of the next version of my drone frame in blender.<br />
 					<img class="main-picture" src="/portfolio/img/drone/NewFrame.jpg" /> <br />
 					<br />
+					I wanted to find out how to 3D print the most rigid frame for my drone.<br />
+					Below shows tests where I experimented with print settings to determine which deformed the least when under load.<br />
+					<img class="main-picture" src="/portfolio/img/drone/PrintTests.jpg" /> <br />
+					The data of the print tests.<br />
+					<img class="main-picture" src="/portfolio/img/drone/PrintTestData.jpg" /> <br />
+					From the data I calculated a relative score for each test (1 being the best). It is calculated by comparing the weight of the print to how much it deforms.<br />
+					<img class="main-picture" src="/portfolio/img/drone/PrintTestScore.jpg" /> <br />
+					<br />
+				</p>
+				
+				<h2>Flight Controller</h2>
+				<p>
 					Two versions of the control board.<br />
 					<img class="side-picture" src="/portfolio/img/drone/BreadboardV1.jpg" />
 					<img class="side-picture" src="/portfolio/img/drone/BreadboardV2.jpg" /> <br />
@@ -50,16 +100,10 @@
 					A screenshot of graphs made from the data of a test flight.<br />
 					<img width="100%" src="/portfolio/img/drone/Grafana.jpg" /> <br />
 					<br />
-					I wanted to find out how to 3D print the most rigid frame for my drone.<br />
-					Below shows tests where I experimented with print settings to determine which deformed the least when under load.<br />
-					<img class="main-picture" src="/portfolio/img/drone/PrintTests.jpg" /> <br />
-					<br />
-					The data of the print tests.<br />
-					<img class="main-picture" src="/portfolio/img/drone/PrintTestData.jpg" /> <br />
-					<br />
-					From the data I calculated a relative score for each test (1 being the best). It is calculated by comparing the weight of the print to how much it deforms.<br />
-					<img class="main-picture" src="/portfolio/img/drone/PrintTestScore.jpg" /> <br />
-					<br />
+				</p>
+				
+				<h2>Propulsion</h2>
+				<p>
 					An old and innacurate thrust test setup.<br />
 					<img class="main-picture" src="/portfolio/img/drone/OldThrustTest.jpg" /> <br />
 					<br />
@@ -68,11 +112,10 @@
 					<br />
 					This is the new thrust stand, which is accurate.<br />
 					<img class="main-picture" src="/portfolio/img/drone/ThrustStand.jpg" /> <br />
-					<br />
 					Here are some close more images of the thrust stand.<br />
-					<img class="main-picture" src="/portfolio/img/drone/ThrustStandJoint.jpg" /> <br />
-					<img class="main-picture" src="/portfolio/img/drone/ThrustStandMotor.jpg" /> <br />
-					<img class="main-picture" src="/portfolio/img/drone/ThrustStandMotorB.jpg" /> <br />
+					<img class="side-picture" src="/portfolio/img/drone/ThrustStandJoint.jpg" />
+					<img class="side-picture" src="/portfolio/img/drone/ThrustStandMotor.jpg" />
+					<img class="side-picture" src="/portfolio/img/drone/ThrustStandMotorB.jpg" /> <br />
 					<br />
 					This is the data from the first round of thrust stand tests.<br />
 					<img class="main-picture" src="/portfolio/img/drone/ThrustTestData.jpg" /> <br />
@@ -81,7 +124,40 @@
 			</div>
 			
 			<div class="row pt-3">
-				<h1 id="creating">Creating the Project</h1>
+				<h1 id="creating">Creating the project</h1>
+				
+				<p>
+					Each section of the project was developed in parallel so were improved to both better suit its own function and to help improve other sections.<br />
+					This means each section has its own version number and may not line up with other versions.
+				</p>
+				<ul>
+					<p>An overview of the development process:</p>
+					<li>After deciding the initial idea of the project I ordered the cheapest ESC, propeller and motor package deal I could find to use for the initial development and so I would not waste money on getting the wrong equipment.
+					It also would not matter if this cheap equipment got damaged</li>
+					<li>I then tested parts induvidually to get the design of the first prototype</li>
+					<li>Making and testing first prototype (to find out what is needed for a proper drone prototype & sort out any major issues)</li>
+					<li>Test series 2: tune values for performance and see what affects how the drone flies</li>
+					<li>Roll jig test: see how the drone handles long duration flight, attempting to tune 1 axis at a time</li>
+					<li>Test series 3: improve reliability and performance to prepare for first fully functional prototype</li>
+					<li>Test series 4: create a fully functioning prototype</li>
+				</ul>
+				
+				<h2 id="fc-circuit">Flight controller (circuit)</h2>
+				<p>
+					Documentation coming soon!
+				</p>
+				
+				<h2 id="fc-software">Flight controller (software)</h2>
+				<p>
+					Documentation coming soon!
+				</p>
+				
+				<h2 id="frame">Frame</h2>
+				<p>
+					Documentation coming soon!
+				</p>
+				
+				<h2 id="propulsion">Propulsion and main circuit</h2>
 				<p>
 					Documentation coming soon!
 				</p>
@@ -89,13 +165,17 @@
 			
 			<div class="row pt-3">
 				<h1 id="future">Looking forward</h1>
-				<ul>Documentation coming soon!</ul>
+				<ul>
+					<li>Documentation coming soon!</li>
+				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="files">Files and Links</h1>
 				<p>
-					<a href="https://github.com/MSchmidt951/Quadcopter-Flight-Controller">Source Code</button>
+					<a href="https://github.com/MSchmidt951/Quadcopter-Flight-Controller">Source Code</a><br />
+					<a href="https://github.com/MSchmidt951/Multi-Purpose-Controller">Source Code (radio controller)</a><br />
+					<a href="https://drive.google.com/drive/folders/1-IDR1PtoTE6kEe57pXAUd4wc52nl1lp8?usp=sharing">Photos, Videos and 3D files</a>
 				</p>
 			</div>
 		</div>
