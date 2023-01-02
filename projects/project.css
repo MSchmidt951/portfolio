@@ -11,6 +11,11 @@ p {
 	margin-right: -5px;
 }
 
+ul > p {
+	margin-left: -15px;
+	margin-bottom: 2px;
+}
+
 /* Tables */
 
 table, th, td {
