@@ -14,9 +14,8 @@
 			<div class="row pt-2">
 				<h1 id="description">Description</h1>
 				<p>
-					<b>This page (and project) is not finished but shows most of what I have done.</b><br /><br />
-					The aim of this project was to design and build a quadcopter drone where I would use as few pre-made components as possible.
-					This included creating the software and circuit board of the flight controller, a frame which can be made with little to no tools and choosing pre-made components (e.g. motors & propellers) which work well together for optimal performance.<br />
+					The aim of this project is to design and build a quadcopter drone where I would use as few pre-made components as possible.
+					This includes creating the software and circuit board of the flight controller, designing a frame that can be made with no tools and choosing pre-made components (e.g. motors & propellers) which work well together for optimal performance.<br />
 					I used an iterative approach to the development.
 					This allowed me to test different ideas to gain a greater understanding of how different parameters affected performance in a real world environment.
 					This approach enabled me to be flexible in the design to get the best optimisation possible.<br />
@@ -26,8 +25,7 @@
 			<div class="row pt-3">
 				<h1 id="skills">Skills</h1>
 				<p>
-					When I started this project, I knew very little about how drones worked and I enjoyed learning about different components and how they work together.<br />
-					I learned general skills that can be used in any project, listed below:
+					When I started this project, I knew very little about how drones worked and I enjoyed learning about different components and how they work together.
 				</p>
 				<ul>
 					<p>I learned general skills that can be used in any project, listed below:</p>
@@ -43,7 +41,6 @@
 					<p>Here are the more specific skills used in the project:</p>
 					<li>Design and assembly of printed circuit boards (PCBs), including switching regulators.</li>
 					<li>Designing 3D printed objects to withstand different environments and stresses.</li>
-					<li>How to read datasheets and use them to influence component selection.</li>
 					<li>Reading and using datasheets to influence component selection and aid in the use of components.</li>
 					<li>Optimising code for speed and storage space.</li>
 					<li>Understanding how different sensors work and how to use them. Along with this I learned about optimising them and using filters e.g. Kalman filters.</li>
@@ -55,71 +52,95 @@
 				<h1 id="features">Closer look</h1>
 				<p>
 					The drone flies by spinning four propellers with brushless motors.<br />
-					The flight controller uses sensors to get the state of the drone (eg rotation) then calculates what speeds the induvidual motors need to spin at in order get to the state it wants to be in.<br />
+					Due to the un-aerodynamic shape of quadcopters they are not stable in the air (unlike planes) meaning there needs to be constant adjustments made to the speed of the motors.<br />
+					The flight controller uses sensors to get the state of the drone (eg rotation) then calculates what speeds the induvidual motors need to spin at, in order to effectively control the drone.<br />
 					Then the flight controller sends a signal to the electronic speed controllers (ESCs) to set the motor speed.<br />
 					<br />
 					Diagram showing the main components of the drone and how they are connected:<br />
-					<img class="main-picture" src="/portfolio/img/drone/.jpg" /> <br />
+					<img class="main-picture" src="/portfolio/img/drone/connections.jpg" /><br />
 					<br />
 					Different sections of the project are: flight controller, frame, propulsion and main circuit, explained below.
 				</p>
 				<p>
-					Some pictures of the latest version of the drone
+					Some pictures of the latest version of the drone<br />
 					<img class="side-picture" src="/portfolio/img/drone/DroneCover.jpg" />
 					<img class="side-picture" src="/portfolio/img/drone/DroneBottom.jpg" /><br />
-					<img class="main-picture" src="/portfolio/img/drone/.jpg" /> Drone in flight<br />
-					<img class="main-picture" src="/portfolio/img/drone/.jpg" /> Flight controller<br />
+					<img class="main-picture" src="/portfolio/img/drone/icon.jpg" alt="Drone in flight" />
+					<img class="main-picture" src="/portfolio/img/drone/BreadboardV2.jpg" alt="Flight controller installed on drone" />
 				</p>
 				<p>
-					Old versions of my drone.<br />
+					An older version of my drone.<br />
 					<img class="main-picture" src="/portfolio/img/drone/DroneOld.jpg" />
 				</p>
-				<h1>Pictures of some what I have done so far</h1>
 				
 				<h2>Frame</h2>
 				<p>
-					An 3D model of the next version of my drone frame in blender.<br />
-					<img class="main-picture" src="/portfolio/img/drone/NewFrame.jpg" /> <br />
+					The frame is the superstructure that all parts of the drone are attached to. It must be rigid and withstand crashing whilst also not being too heavy for the drone.<br />
+					It is fully 3D printed out of PLA which allows me to not be restricted by size or shape of stock materials and is more consistant than hand tools.<br />
 					<br />
-					I wanted to find out how to 3D print the most rigid frame for my drone.<br />
-					Below shows tests where I experimented with print settings to determine which deformed the least when under load.<br />
-					<img class="main-picture" src="/portfolio/img/drone/PrintTests.jpg" /> <br />
-					The data of the print tests.<br />
-					<img class="main-picture" src="/portfolio/img/drone/PrintTestData.jpg" /> <br />
-					From the data I calculated a relative score for each test (1 being the best). It is calculated by comparing the weight of the print to how much it deforms.<br />
-					<img class="main-picture" src="/portfolio/img/drone/PrintTestScore.jpg" /> <br />
-					<br />
+					This is the centre of my drone where the four arms, battery holder and electronics are attached to.<br />
+					<img class="main-picture" src="/portfolio/img/drone/centre.jpg" /><br />
+					I decided to split up the arms from the centre partly due to the maximum size of the printer and it also allows arms to be swapped out if they are damaged or need upgrading.<br />
+					The arms main function is to hold the motor and propellers, they also have landing legs on the bottom of them.<br />
+					<img class="main-picture" src="/portfolio/img/drone/arm.jpg" /><br />
+					This is the battery holder which also doubles as a cover for the electronics.<br />
+					It is placed on top of the drone to help put the centre of mass as close to the propellers as possible which gives them more control so the drone can be more stable.<br />
+					<img class="main-picture" src="/portfolio/img/drone/battHolder.jpg" /><br />
 				</p>
 				
 				<h2>Flight Controller</h2>
 				<p>
-					Two versions of the control board.<br />
-					<img class="side-picture" src="/portfolio/img/drone/BreadboardV1.jpg" />
-					<img class="side-picture" src="/portfolio/img/drone/BreadboardV2.jpg" /> <br />
+					The flight controller is the brain of the drone, its main function is to control the state of the drone.<br />
+					I created the printed circuit board (PCB) and wrote custom software to use the hardware on the PCB and control the devices connected to it.<br />
+					To simplify the design and testing I used a pre-made board with a microcontroller on it, plus the entire series of chips that I wanted to choose from were out of stock with very high lead times.<br />
+					I chose a Teensy 4.1 for the microcontroller board because it is has very powerful processor with a large variety of output pins in a small package.<br />
 					<br />
-					A screenshot of graphs made from the data of a test flight.<br />
-					<img width="100%" src="/portfolio/img/drone/Grafana.jpg" /> <br />
+					The drone knows its state at all times, it knows this by reading the separate sensor values then combining them together to get the state of the drone.<br />
+					A kalman filter is applied to take out most of the noise from the signal.<br />
+					It then calculates the difference, or deviation, of where it should be and where it is. It uses deviations to generate corrective commands in order to get the drone to the correct state.<br />
+					They are generated by using PID control which uses proportional, integral and derivative calculations. Using all three together allows for accurate control.<br />
+					The user can control where the drone should be by using <a href="https://mschmidt951.github.io/portfolio/projects/controller.html">a controller</a>.<br />
+					The corrective commands are sent to the speed controller using OneShot125. This is a protocol which sends a pulse between 125 and 250 microseconds long allowing for a maximum rate of 4kHz.<br />
+					This has a higher refresh rate than normal servo PWM (max 500hz) and is much simpler to implement than digital protocols eg DShot.<br />
 					<br />
+					Each loop data is written to a log on an SD card. Info such as time, attitude, PID values and input are logged. This is very useful to figure out what went wrong/underperformed and allows for diagnosing and testing of features.<br />
+					The values are stored in binary rather than text. This is due to conversion from variables to text takes a lot of time, also it saves space which means longer flights can be logged and writing less data takes less time.<br />
+					After each flight the data is converted into text and saved to a csv file. This can be imported into Grafana to show graphs like the one below:<br />
+					<img width="100%" src="/portfolio/img/drone/Grafana.jpg" /><br />
+					<br />
+					There are two voltage regulators on the board for 5V and 3.3V. These have a large voltage input range (6 - 30V) and high current rating (10A), more than other flight controllers, to allow for most setups to be compatible.<br />
+					Switching regulators were used because of higher maximum current and higher efficiency throughout the entire input range with the downside of a more complicated PCB design.<br />
+					I need the large current capacity to drive motors and other devices. This means during the PCB design I had to take into account the trace thickness and via size.<br />
+					The board has multiple protection features such as reverse polarity protection, fuses (for the whole board and for induvidual components) and diodes to protect from overvoltage from incorrect wiring.<br />
+					<br />
+					The flight controller includes some extra features and expandability, allowing potential use in other projects.<br />
+					These include output such as two RGB LEDs which can show the status of the drone. There is also a buzzer which can be used to alert people around the device or to help find it.<br />
+					High current terminals allows control of higher current devices than the microcontroller can control directly. For example high power LEDs as headlights.<br />
+					Examples of features which are not used for the drone are pins for 5 servos and 2 extra speed controllers as well as SPI and I2C/UART pins for connecting external devices, plus one for a GPS module.<br />
+					<br />
+					Empty PCB of the flight controller:<br />
+					<img class="main-picture" src="/portfolio/img/drone/FC_PCB.jpg" /><br />
+					The front and back of the flight controller:<br />
+					<img class="side-picture" src="/portfolio/img/drone/FCfront.jpg" /><br />
+					<img class="side-picture" src="/portfolio/img/drone/FCback.jpg" /><br />
+					<br />
+					Schematic:<br />
+					<img width="100%" src="/portfolio/img/drone/schematic.jpg" /><br />
+					PCB in KiCad:<br />
+					<img width="100%" src="/portfolio/img/drone/FC_KiCad.jpg" />
 				</p>
 				
 				<h2>Propulsion</h2>
 				<p>
-					An old and innacurate thrust test setup.<br />
-					<img class="main-picture" src="/portfolio/img/drone/OldThrustTest.jpg" /> <br />
+					The propulsion includes the ESCs, motors and propellers.<br />
+					The ESC sets the motor speed according to the signal sent from the flight controller.<br />
+					I chose a 4-in-1 ESC which is able to control all four brushless motors which spin the propellers.<br />
 					<br />
-					The propellers which I will measure the thrust of to see which ones will be suitable for my drone.<br />
-					<img class="main-picture" src="/portfolio/img/drone/Propellers.jpg" /> <br />
+					The ESC with all four motors soldered to it:<br />
+					<img class="main-picture" src="/portfolio/img/drone/ESC.jpg" /><br />
 					<br />
-					This is the new thrust stand, which is accurate.<br />
-					<img class="main-picture" src="/portfolio/img/drone/ThrustStand.jpg" /> <br />
-					Here are some close more images of the thrust stand.<br />
-					<img class="side-picture" src="/portfolio/img/drone/ThrustStandJoint.jpg" />
-					<img class="side-picture" src="/portfolio/img/drone/ThrustStandMotor.jpg" />
-					<img class="side-picture" src="/portfolio/img/drone/ThrustStandMotorB.jpg" /> <br />
-					<br />
-					This is the data from the first round of thrust stand tests.<br />
-					<img class="main-picture" src="/portfolio/img/drone/ThrustTestData.jpg" /> <br />
-					<br />
+					Mounted motor with propeller attached:<br />
+					<img class="main-picture" src="/portfolio/img/drone/arm.jpg" />
 				</p>
 			</div>
 			
@@ -127,54 +148,283 @@
 				<h1 id="creating">Creating the project</h1>
 				
 				<p>
-					Each section of the project was developed in parallel so were improved to both better suit its own function and to help improve other sections.<br />
-					This means each section has its own version number and may not line up with other versions.
+					Each section of the project was developed in parallel so they were improved to both better suit their own function and to help improve other sections.<br />
+					This means each section has its own version number and may not line up with other versions.<br />
+					<br />
+					I grouped the flight tests into series, each series having a purpose that it wanted to achieve.
 				</p>
 				<ul>
 					<p>An overview of the development process:</p>
-					<li>After deciding the initial idea of the project I ordered the cheapest ESC, propeller and motor package deal I could find to use for the initial development and so I would not waste money on getting the wrong equipment.
-					It also would not matter if this cheap equipment got damaged</li>
-					<li>I then tested parts induvidually to get the design of the first prototype</li>
-					<li>Making and testing first prototype (to find out what is needed for a proper drone prototype & sort out any major issues)</li>
-					<li>Test series 2: tune values for performance and see what affects how the drone flies</li>
-					<li>Roll jig test: see how the drone handles long duration flight, attempting to tune 1 axis at a time</li>
-					<li>Test series 3: improve reliability and performance to prepare for first fully functional prototype</li>
-					<li>Test series 4: create a fully functioning prototype</li>
+					<li>After deciding the initial idea of the project I ordered the cheapest ESC, propeller and motor package deal I could find to use for the initial development.<br />
+					I did this so I would not waste money on getting the wrong equipment and it would not matter if this cheap equipment got damaged.</li>
+					<li>Then I tested parts induvidually to get the design of the first prototype.</li>
+					<li>I could now make and test the first prototype. I did this to sort out any major issues and to find out what is needed for a proper drone prototype.<br />
+					This included connection tests, running software without motors attached and the first series of test flights.</li>
+					<li>For the second test series I tuned values for performance and see what parameters affect how the drone flies.<br />
+					After this test series I knew more about how the drone works and established that I needed to improve the code for better performance rather than trying to tune values with the current code.</li>
+					<li>I created a jig that only allowed the drone to rotate in one axis so I could test induvidually. It also allowed me to see how the drone handles long duration flight.<br />
+					These tests proved that the drone can handle longer flights but could not give me much more than that as I needed to fly with a proper centre of gravity.</li>
+					<li>For the third series of tests I improved reliability and performance to prepare for the first fully functional prototype.<br />
+					I now had reliable code and the knowledge of what exactly was needed for a fully functioning prototype.</li>
+					<li>During test series 4 I redesigned and upgraded every section in order to make a fully functioning and better performing drone.</li>
 				</ul>
 				
-				<h2 id="fc-circuit">Flight controller (circuit)</h2>
+				<h2 id="fc-electronics">Flight controller (electronics)</h2>
 				<p>
-					Documentation coming soon!
+					The first version of the flight controller connected the modules together on a perfboard.<br />
+					This version used a Teensy 3.6 connected to an MPU6050 for the inertial measurement unit (IMU) and an nRF24l01 for the radio.<br />
+					I chose the MPU6050 as it was widely used so I could find lots of support online for it and it could handle the vibrations of the drone.<br />
+					An nRF24l01 was used because it is light and small while also being very cheap. It connects to a wireless controller which is its own project. Info can be found <a href="https://mschmidt951.github.io/portfolio/projects/controller.html">here</a>.<br />
+					It used the battery elimination circuit (BEC) of one of the ESCs as the power supply. The BEC is a voltage regulator inside the ESC which is convenient but the voltages from different BECs can vary and BECs from cheap ESCs can be unreliable.<br />
+					The LEDs sometimes drew too much current for the Teensy which damaged one.<br />
+					Version 1 of the flight controller:<br />
+					<img class="main-picture" src="/portfolio/img/drone/BreadboardV1.jpg" /><br />
+					<br />
+					<br />
+					Version 2 is a small incremental upgrade from version 1.<br />
+					A Teensy 4.1 was used which was cheaper and gave a large performance increase, mostly due to the higher clock speed (180MHz vs 600MHz).<br />
+					A USB regulator was used instead of the BEC to be more reliable and output the same voltage no matter the ESC. This needs more wiring and is heavier but there is enough margin to handle that.<br />
+					More headers and pins were added for prototyping.<br />
+					I tested using a dropout regulator to power the Teensy.<br />
+					A transistor was used to drive the LEDs fixing the over current issue.<br />
+				</p>
+				<ul>
+					<p>Some new issues appeared when using this board:</p>
+					<li>When both the battery and USB are plugged in at the same time it destroys the Teensy.</li>
+					<li>Plugging the speed controller incorrectly sends too high of a voltage to the Teensy pins, destroying the board.</li>
+					<li>Due to the MPU6050 being mounted separately from the rest of the board, and only with two screws, there were alignment issues when setting the zero orientation. Securing it to the rest of the flight controller properly would fix this.</li>
+					<li>The MPU6050 uses I2C to send data so has a maximum update rate of 1kHz, less than the update rate of the software, plus there are newer, better IMUs.</li>
+				</ul>
+				<p>
+					Version 2 of the flight controller:<br />
+					<img class="main-picture" src="/portfolio/img/drone/BreadboardV2.jpg" /><br />
+					The voltage regulator with a splitter attached<br />
+					<img class="main-picture" src="/portfolio/img/drone/USBregulator.jpg" /><br />
+					<br />
+					<br />
+					For version 3 I did a complete redesign because using a perfboard limited me to using pre made modules which lead me to the decision of making a custom PCB.<br />
+					I kept the size of the board roughly the same but I included many more features, learning from what was lacking from previous versions.<br />
+					<br />
+					I wanted to replace the Teensy 4.1 with an STM32H7 or STM32F7, however none that I wanted were available, so I used the Teensy.<br />
+					The sensors were upgraded, the MPU6050 was replaced by two sets of accelerometer and gyroscope sensors (ICM42688 and LSM6DSOXTR). They have better specifications in all areas including less noise, higher update rate and lower cost.<br />
+					A barometer was included to help determine altitude and a magnetometer to measure real world orientation.<br />
+					I fixed the issue of having the battery and USB connected at the same time by being able to select which voltage source I want to use.<br />
+					The ESC connectors were changed significantly. I replaced the old connectors with a connector for a 4 in 1 ESC.<br />
+					I then added in 2 extra ESC connectors with protection against incorrect wiring, plus five servo connectors. These will allow use of this flight controller on other devices eg planes where servos are used for the control surfaces.<br />
+					<br />
+					To let the user know what state the drone is in the board has two RGB LEDs, each colour corresponding to a state. A buzzer was also added which could be used to alert the user or help find the drone.<br />
+					Instead of having the bright LEDs connected directly to the board I have three screw terminals which can handle 2 amps each so different electronics can be connected eg bright LEDs or nichrome wire.<br />
+					Other connectors were added for connecting other devices with either I2C, SPI or UART. A GPS connector was added for future use.<br />
+					The board needs its own voltage regulator because ESCs may have BECs with the wrong voltage if any. It needs to handle high current so I chose to use a switching regulator which is more complex than a linear regulator but has a higher voltage range.<br />
+					The regulator circuit includes reverse voltage and over current protection.<br />
+					Version 3 of the flight controller:<br />
+					<img class="main-picture" src="/portfolio/img/drone/FCfront.jpg" />
 				</p>
 				
 				<h2 id="fc-software">Flight controller (software)</h2>
-				<p>
-					Documentation coming soon!
-				</p>
+				<ul>
+					<p>v0.1</p>
+					<li>I made some basic code to test radio communication and ESC control to test if the assembled system works.</li>
+				</ul>
+				<br />
+				<ul>
+					<p>v0.2</p>
+					<li>I implemented code to read the MPU6050 so I could control the attitude of the drone.</li>
+					<li>Then I added proportional control of the roll and pitch axis. This means that the change in motor speed is proportional to the differene between the wanted and current angle.</li>
+					<li>I added logging which allowed me to see what status the drone was in during tests which is extremely useful for diagnoses of problems.</li>
+					<li>This code was used before the documented test series and did not work well. There were some issues with immediate flipping and the drone was generally not in control.</li>
+					<li>However these tests were safe because there was an abort button and the drone was always close to the ground and spent very few seconds in the air (if at all).</li>
+					
+				</ul>
+				<br />
+				<ul>
+					<p>v0.3</p>
+					<li>Due to the unreliability of the drone I implemented better abort modes. I added an abort function which is called when the abort button is pressed, after radio loss and when the drone is flipping.</li>
+					<li>This abort mode increased the saftey of the drone as it would do this without any user input, it works by shutting off the motors and flashing the lights.</li>
+					<li>I added some general improvements to help with the stability, including better calculation of ESC values.</li>
+					<li>These changes allowed the drone to remain upright some of the time and gave a good code base to work on.</li>
+				</ul>
+				<br />
+				<ul>
+					<p>v0.4</p>
+					<li>A better MPU6050 library was used which reduced noise by using the Digital Motion Processor (DMP). It had the disadvantage of a maximum update rate of 200Hz but was worth the reduced noise and was not too much of a limitation compared to the update rates of the rest of the system.</li>
+					<li>I tried using a simple moving average (SMA) for pitch and roll which removed most of the noise with a noticeable lag time. A small percentage of the attitude control used the SMA.</li>
+					<li>Tuning and tried different values to learn how the code influences the flight.</li>
+					<li>Code for a standby mode was written which temporarily turns off the motors.</li>
+					<li>The program added a header to the log which showed the settings used for the flight and what data is in which column. This is very useful when looking back at older logs and determining what affected the flight.</li>
+					<li>I was able to get the loop time from ~14ms down to 3-5ms by using a better SD card, formatting the SD card properly and using a Teensy 4.1 rather than a Teensy 3.6.</li>
+					<li>Drone now able to control the attitude somewhat proving that my approach to handling attitude control was working.</li>
+				</ul>
+				<br />
+				<ul>
+					<p>v0.5</p>
+					<li>Changed the x and y axes to roll and pitch and renamed some other variables. This improved readability by making the variables clear to understand.</li>
+					<li>I also restructured the code slightly and added more comments (such as comments explaining variables).</li>
+					<li>An important feature I added was integral and derivative control, rather than having just proportional. This helps with finer control and lessens overshoots and oscillations.</li>
+					<li>For the derivative control I used the SMA to calculate the rotation rate and adjust the motor speed to counteract it.</li>
+					<li>I used a faster library to write to the SD card alongside minimising the use of strings which helped lower the loop time from 3-5ms to 1-2ms.</li>
+					<li>When writing to the motors I used a function that gave me 1000 steps of control, compared to the old function allowing 180, giving me finer control.</li>
+					<li>Now the drone can do a mostly stable hover (±5 degrees peak deviation).</li>
+				</ul>
+				<br />
+				<ul>
+					<p>v1.0</p>
+					<li>This version was intended to make the code easy to work with and understand. It also worked on what the last version was lacking to achieve proper flight performance eg aiming for a 4kHz update rate.</li>
+					<li>Instead of having one long file I split the code into different files, each with its respective class: radio, IMU, logger, motor controller and PID controller.</li>
+					<li>The code was made much more modular by using the classes, plus different libraries and hardware can be swapped out by changing one line of code.</li>
+					<li>I changed variables to use understandable units (eg rotation rate (rRate) now measured in degrees per millisecond). I also removed variables that depend on loop time length.</li>
+					<li>I used Doxygen to generate a web page which explains all of the classes attributes and functions.</li>
+					<li>Simplified integral and derivative calculations for performance and readability.</li>
+					<li>Yaw stabilisation was added along with seperate PID gains for each axis. This helps because the mass can be distributed differently between the axes.</li>
+					<li>In order to reduce noise from the sensor data a kalman filter is applied to it, and a new MPU library was added which uses a computationally inexpensive algorithm to convert the raw data to an angle.</li>
+					<li>The logging was upgraded for speed and better user experience. I was able to do this by logging the data in binary rather than as text, this gives two advantages: no strings need to be used which would be slow and less storage is needed. Old logs are now backed up and settings can be loaded from a file instead of having to re-upload the program.</li>
+					<li>The ESC protocol was changed from using 1-2ms pulses to using OneShot125 which is 8 times faster and the code I wrote to send the signals is more accurate than the old code.</li>
+				</ul>
 				
 				<h2 id="frame">Frame</h2>
-				<p>
-					Documentation coming soon!
-				</p>
+				<ul>
+					<p>Version 0 and Tests</p>
+					<li>When choosing which material to 3D print I watched <a href="https://www.youtube.com/watch?v=te0Wwf7Dxj4">this video</a> which gave me data on which material is the most rigid for the least amount of mass.</li>
+					<li>I decided to use PLA because it is one of the most rigid materials and half the price of carbon fibre reinforced filament.</li>
+					<li>After deciding that the frame should consist of four arms attached to a centre I started the development by getting an arm which can withstand the forces of the thrust from the propeller.</li>
+					<li>I tested three iterations by clamping them to a table and spinning the propeller, this gave a good estimation for flight like conditions but induced a lot of vibrations.</li>
+					<li><img class="main-picture" src="/portfolio/img/drone/frameV0.jpg" /></li>
+				</ul>
+				<br />
+				<ul>
+					<p>Version 1</p>
+					<li>This was the first flight ready version.</li>
+					<li>In order to fly I needed to add a battery holder which sits under the main body thinking lowering the centre of gravity would create a pendulum effect (this turned to be wrong because it brings the centre of gravity away from the propellers so they have less affect on attitude control).</li>
+					<li>I made the legs thicker and reinforced them because I knew I would be crashing throughout the development.</li>
+					<li>I removed most of the 90 degree corners which helps to reduce points of stress and gave the drone its own design style.</li>
+					<li><img class="main-picture" src="/portfolio/img/drone/frameV1.jpg" /></li>
+				</ul>
+				<br />
+				<ul>
+					<p>Version 2</p>
+					<li>After some hard landings some of the legs breaking I needed to print a new version that gave some improvements.</li>
+					<li>When the drone took off I noticed some flex in the arms so I made the arms and centre thicker.</li>
+					<li>The centre had supports added which stabilised the arms by giving another mounting point for the arm.</li>
+					<li>As the propellers were quite far away from each other I made the arms shorter saving weight and reducing the forces on the arm by reducing the moment between the propellers and the centre of mass.</li>
+					<li>The legs were made longer so when the drone landed at an angle there would be less of a chance for the propellers to hit the ground.</li>
+					<li>This version was still prone to legs breaking but was able to do its job better.</li>
+					<li><img class="main-picture" src="/portfolio/img/drone/frameV2.jpg" /></li>
+				</ul>
+				<br />
+				<ul>
+					<p>Version 3</p>
+					<li>After crash from a height of around 4 metres on to hard ground cracked the frame I needed to print a new frame that will be more resistant to damage.</li>
+					<li>This included more robust legs where each is printed as one thick part rather than two thin parts, thanks to the way it is printed it is not heavier. They also have flexible filament at the bottom which will absorb some of the shock on impact.</li>
+					<li>Both the battery and MPU6050 holder cracked in the crash so they were both reinforced.</li>
+					<li>The thickness of the centre was increased from 3mm to 4mm because I had the mass budget.</li>
+					<li>When printing the frame I changed the colour scheme so the right arms are blue and the left arms are red making it very easy to tell which direction the drone is facing. This also made the drone look a lot better than the previous versions.</li>
+					<li>I added a cover for the electronics to help against light rain and unexpected objects. The attachment points were weak so future versions would need to be much thicker or be reinforced.</li>
+					<li>I made templates that could be used to attach addons that could be used in the future eg cameras.</li>
+					<li>
+						Version 3 in blender (without the cover):<br />
+						<img class="main-picture" src="/portfolio/img/drone/frameV3.jpg" />
+					</li>
+				</ul>
+				<br />
+				<ul>
+					<p>Arm tests</p>
+					<li>Before printing the next version I tested which printing settings gave the highest resistance under load with the least mass.</li>
+					<li>
+						Below shows some of the tests. I printed these then on one end clamped them to the edge of a table. I put a weight on the other end and measured how much it deformed.<br />
+						<img class="main-picture" src="/portfolio/img/drone/PrintTests.jpg" />
+					</li>
+					<li>
+						The data of the 14 print tests. I changed only one or two parameters at a time then printed the next one based off of what I found with the previous test.<br />
+						<img class="main-picture" src="/portfolio/img/drone/PrintTestData.jpg" />
+					</li>
+					<li>From the data I calculated a relative score for each test (1 being the best). It is calculated by comparing the weight of the print to how much it deforms.</li>
+					<li>The most obvious parameter that changed the rigidity was the height, shown in the 12mm test.</li>
+					<li>I will use the 12mm settings because it deforms 60% less than the original for only 31% more mass.</li>
+					<li><img class="main-picture" src="/portfolio/img/drone/PrintTestScore.jpg" /></li>
+				</ul>
+				<br />
+				<ul>
+					<p>Version 4</p>
+					<li>This frame uses 5 inch propellers instead of the old 10 inch propellers. Thanks to this and the arm tests I was able to make the arms much lighter and stronger.</li>
+					<li>I was able to have a thicker centre thanks to mass saved.</li>
+					<li>I moved the battery to the top off the drone so the centre of mass is closer to the propellers. The design was influenced by the cover from the previous version so has a screw going through the middle to support the holder.</li>
+					<li>With the battery no longer underneath I was able to make the legs shorter. I also changed the design so it has more flexible filament to dampen landings further.</li>
+					<li>The mounting for the electronics changed due to the new hardware being used. There are now only four holes, reduced from 6, plus the ESC holders could be removed.</li>
+					<li>
+						A 3D model of version 4 in blender:<br />
+						<img class="main-picture" src="/portfolio/img/drone/frameV4.jpg" />
+					</li>
+				</ul>
 				
 				<h2 id="propulsion">Propulsion and main circuit</h2>
 				<p>
-					Documentation coming soon!
+					I used the first set of propulsion to find out how ESC works and to test battery, motor and propeller works as needed.<br />
+					I wanted to test the thrust of the propellers without having to risk the drone so I devised a thrust stand.
 				</p>
+				<ul>
+					<p>Old thrust stand</p>
+					<li>
+						My approach was to put the motor and some weights on a scale to measure the amount of downwards thrust.<br />
+						<img class="main-picture" src="/portfolio/img/drone/OldThrustTest.jpg" />
+					</li>
+					<li>These tests were not accurate, especially at higher thrust, most likely due to most of the thrust pushing down on the scales which decreased the measured thrust.</li>
+				</ul>
+				<br />
+				<ul>
+					<p>New thrust stand</p>
+					<li>I built a new thrust stand which is much more accurate than the old setup.</li>
+					<li>It works by the propeller pushing the stand which then rotates around a bolt which presses the moving part of the stand into the scales. The distance from the point of rotation to the propeller and the scales is the same balancing the moments.</li>
+					<li>I tested the accuracy by comparing the thrust from the stand to the thrust generated from previous flights.</li>
+					<li><img class="main-picture" src="/portfolio/img/drone/ThrustStand.jpg" /></li>
+					<li>
+						Close up images of the thrust stand:<br />
+						<img class="side-picture" src="/portfolio/img/drone/ThrustStandJoint.jpg" />
+						<img class="side-picture" src="/portfolio/img/drone/ThrustStandMotor.jpg" />
+						<img class="side-picture" src="/portfolio/img/drone/ThrustStandMotorB.jpg" />
+					</li>
+				</ul>
+				<br />
+				<ul>
+					<p>Choosing new propulsion</p>
+					<li>Before I made the fourth version of the frame I wanted to get better propulsion.</li>
+					<li>Using smaller propellers would mean I could make a smaller frame and the propeller would be lighter therefore be able to change speed with less time and energy. The old 10 inch propellers maximum thrust was also much more than I was ever using so the loss in max thrust would not affect performance.</li>
+					<li>
+						I tested various propellers to see which will be suitable, the old 10 inch propeller on the left.<br />
+						<img class="main-picture" src="/portfolio/img/drone/Propellers.jpg" />
+					</li>
+					<li>Instead of having four ESCs I chose to get a 4 in 1 ESC which is much lighter and requires far less wiring. This new ESC supports OneShot, unlike the old ECSs.</li>
+					<li>As I was only doing short flights I did not need a large battery so I bought two batteries which weigh 195g and 164g, compared to the old 309g battery. The 164g battery has a higher voltage than the others to give greater power for less current.</li>
+				</ul>
+				<br />
+				<ul>
+					<p>New thrust tests</p>
+					<li>Using the new thrust stand I measured the thrust of most of the new propellers. As expected the propellers thrust is grouped together by the diameter and showed I would need to use the 7 inch propellers.</li>
+					<img class="main-picture" src="/portfolio/img/drone/ThrustTestData.jpg" /></li>
+					<li>After performing these tests I decided to get a lighter motor with higher kV (more RPM) because the old, heavier motors had lots of spare torque.</li>
+					<li>I decided to go for a motor size around 2306 or 2207 because they have a good size for around 5 to 7 inch propellers. I decided to go for a diameter of 22mm because it has slightly higher acceleration.</li>
+					<li>I ended up getting a 2208 1800kV motor.</li>
+					<li>With the mass savings from the ESC, motors, propellers and smaller frame from the smaller propellers I was able to reduce the weight of these parts from 692g to 424g.</li>
+					<li><img class="main-picture" src="/portfolio/img/drone/WeightChart.jpg" /></li>
+				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="future">Looking forward</h1>
 				<ul>
-					<li>Documentation coming soon!</li>
+					<li>I have learned a lot from this project including that an iterative approach is worked well by allowing me to learn and improve from each version.</li>
+					<li>This project gave me an understanding of the complexity of these kinds of projects and what will be required for future projects.</li>
+					<li>I have developed transferable skills for later projects, such as PCB design and real time use and processing of data in control system.</li>
+					<li>A GPS module could be utilised which can be used to do automated circuits or return to the take off position.</li>
+					<li>I could create a drone that weighs less than 250g which would give me more freedom on where I can fly.</li>
 				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="files">Files and Links</h1>
 				<p>
-					<a href="https://github.com/MSchmidt951/Quadcopter-Flight-Controller">Source Code</a><br />
+					<a href="https://github.com/MSchmidt951/Quadcopter-Flight-Controller">Source Code (flight controller)</a><br />
 					<a href="https://github.com/MSchmidt951/Multi-Purpose-Controller">Source Code (radio controller)</a><br />
+					<a href="https://github.com/MSchmidt951/ESC-Tester">Source Code (ESC tester)</a><br />
 					<a href="https://drive.google.com/drive/folders/1-IDR1PtoTE6kEe57pXAUd4wc52nl1lp8?usp=sharing">Photos, Videos and 3D files</a>
 				</p>
 			</div>
