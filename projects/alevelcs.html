@@ -23,14 +23,82 @@
 			<div class="row pt-3">
 				<h1 id="skills">Skills</h1>
 				<ul>
-					<li>Documentation coming soon!</li>
+					<li>Back and front end web development</li>
+					<li>Implementing passwords and security over the web</li>
+					<li>Setting up web servers</li>
+					<li>Use of command line interfaces</li>
 				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="features">Closer look</h1>
+				<h2>classes.php</h2>
 				<p>
-					Documentation coming soon!
+					classes.php contains the main portion of the code and is included in almost all web pages. This helps keep the code manageable from one main location.<br />
+					It includes a class called Game and two child classes: DownloadableGame and WebGame.<br />
+					These contain all the necessary methods for the games such as displaying previews, downloading and running the game on a web page.<br />
+					There are also FAQ, Report and Search classes alongside some miscellaneous functions which will be discussed later.
+				</p>
+					
+				<h2>Uploading</h2>
+				<p>
+					On the upload page users can fill in a form containing all the information about the game e.g. name, description, genre.<br />
+					They will also need to upload a zip file containing the game. This will either be a game that will be downloaded and run on the users computer or a game written in javascript that will be able to be run directly on the web.<br />
+					When it is uploaded the game is stored on the server waiting to be reviewed by the administrators before being allowed to be used by the public.
+				</p>
+					
+				<h2>Administrators</h2>
+				<p>
+					The administrators can log into the site and control the site without having to access the server directly.<br />
+					They are able to log in by entering the username and password in login.php. This generates a random key of 10 to 25 digits long of random numbers and letters which is used to encrypt the username and password.<br />
+					A post request to checklogin.php is sent with the key and the encrypted username and password. They are then decrypted with the key and checked.<br />
+					If they are correct then the key is stored as a cookie and the encrypted username and password is stored as session variables. Each time an admin page is used the username and password is checked on the server.
+				</p>
+				<p>
+					When they are logged in they can view pending games and search for all games, including pending games.<br />
+					In manageGame.php the admins can approve games (this moves the game out of the pending folder and makes it available to the public) or deny them.<br />
+					Admins can test web games directly from the site on gameTest.php.
+				</p>
+					
+				<h2>Downloading and Playing Games</h2>
+				<p>
+					The download page displays information about the game and allows the users to download the game.<br />
+					On play.php the user can play web games. This page also displays similar games.
+				</p>
+					
+				<h2>Navbar, Footer and Home</h2>
+				<p>
+					Each page has a navigation bar at the top and a footer at the bottom.<br />
+					The navbar contains all the relevant links to navigate around the site and includes a search bar.<br />
+					The footer has information about the site and gives a link to the FAQ pages.<br />
+					On the home page users can view new and popular games.
+				</p>
+					
+				<h2>Search</h2>
+				<p>
+					Users can search for games and filter them by type, genre, player count and rating.<br />
+					The results can be ordered alphabetically or by upload date, and the order can be reversed too.
+				</p>
+					
+				<h2>FAQ</h2>
+				<p>
+					The admins can add FAQs which can be viewed by users.<br />
+					The FAQ page shows a preview for all FAQs. Individual FAQs can be searched for and viewed.
+				</p>
+					
+				<h2>Scripts</h2>
+				<p>
+					I wrote a few scripts that assist with running the server:<br />
+					start.sh starts the server, sets up the log file and runs manageLoginAttempts.sh. This script limits the number of admin login attempts to 5 per hour.<br />
+					stop.sh stops the server and manageLoginAttempts.sh.<br />
+					sendEmail.sh sends an email to the administrators, it is used when a game is reported.
+				</p>
+					
+				<h2>Log</h2>
+				<p>
+					A logging system exists where the notable activities can be seen. Each log file is for a particular day.<br />
+					Errors are logged alongside user activities (rating, reporting and downloading) and admin activities (accepting/denying games).<br />
+					This can help debugging and track how the site is used.
 				</p>
 			</div>
 			
