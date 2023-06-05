@@ -14,31 +14,139 @@
 			<div class="row pt-2">
 				<h1 id="description">Description</h1>
 				<p>
-					An LED cube is a sructure that arranges LEDs in a lattice, forming a cube, I created a 5x5x5 LED cube meaning there are 125 LEDs in total. Each LED can have its colour changed induvidually so can be used to create patterns and ambient lighting.
-					This was my first electronics project and I gained inspiration from and based this project on <a href="https://www.youtube.com/watch?v=jX1GaPgSheI">this video</a>.
-					To control the LEDs a signal is sent from the microcontroller to the first LED which is linked in a chain to the rest of the LEDs. This signal sets the strength of the red, green and blue channels of each LED without the need for any complicated wiring.
-					I have programmed this to be controlled by most Arduino based microcontrollers, such as the Arduino Uno, or the Arduino Due if more processing power is needed.
+					An LED cube is a structure that arranges LEDs in a lattice, forming a cube, I created a 5x5x5 LED cube meaning there are 125 LEDs in total. Each LED can have its colour changed individually so can be used to create patterns and ambient lighting.<br />
+					This was my first electronics project and I gained inspiration from and based this project on <a href="https://www.youtube.com/watch?v=jX1GaPgSheI">this video</a>.<br />
+					To control the LEDs a signal is sent from the microcontroller to the first LED which is linked in a chain to the rest of the LEDs. This signal sets the strength of the red, green and blue channels of each LED without the need for any complicated wiring.<br />
+					I have programmed this to be controlled by most Arduino based microcontrollers, such as the Arduino Uno, or the Arduino Due if more processing power is needed.<br />
 				</p>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="skills">Skills</h1>
 				<ul>
-					<li>Documentation coming soon!</li>
+					<li>Using software to control hardware</li>
+					<li>Wiring and soldering</li>
+					<li>Use of jigs for batch manufacturing</li>
 				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="features">Closer look</h1>
+				<h2>LEDs</h2>
 				<p>
-					Documentation coming soon!
+					I used 8mm PL9823 RGB LEDs because of their large size, and they do not need any additional hardware to function (i.e. registers) which saves a lot of complication in wiring, assembly and cost.<br />
+					I tested each of the LEDs to make sure the red, green and blue channels were working then bent them into a position ready for soldering.<br />
+					The LEDs have four pins: ground, power in, data in and data out. The data out pin can be connected to the data in of another LED to create a chain so the microcontroller can control multiple LEDs with one data in pin.<br />
+					<img class="main-picture" src="/portfolio/img/ledcube/led.jpg" />
 				</p>
+				<h2>Structure</h2>
+				<p>
+					The structure is made from the wires themselves. This means the wires must be rigid and perfectly straight in order to keep the LEDs in line with eachother.<br />
+					I used silvered copper wire because this will be rust resistant, and rigid enough due to the wire being single core.<br />
+					To make the wires straight and keep their shape I held one end of the wire with pliers and the other attached to a drill and spun the drill.<br />
+					Twisting them like this makes them very straight and work hardens the metal, thus making it stiffer.<br />
+					<br />
+					The structure of the cube is made from 25 columns of 5 LEDs. These columns are connected in 5 rows by short wires, which are data lines, and the ends of these rows connect to the start of the next row.<br />
+					This table shows the pin numbers of a layer:
+				</p>
+				<table>
+					<tr>
+						<td>0</td>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+						<td>4</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>6</td>
+						<td>7</td>
+						<td>8</td>
+						<td>9</td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td>11</td>
+						<td>12</td>
+						<td>13</td>
+						<td>14</td>
+					</tr>
+					<tr>
+						<td>15</td>
+						<td>16</td>
+						<td>17</td>
+						<td>18</td>
+						<td>19</td>
+					</tr>
+					<tr>
+						<td>20</td>
+						<td>21</td>
+						<td>22</td>
+						<td>23</td>
+						<td>24</td>
+					</tr>
+				</table>
+				<p>
+					Each layer starts with a data in pin, and the second and fourth layers have a data out pin for the next layer.<br />
+					I tried using one pin on the first layer to control all 125 LEDs, however this caused flickering so the data lines were split in three sections.<br />
+					I made a jig to hold five evenly spaced out LEDs in place for each column, then used this to solder the ground and 5v wires to the LEDs creating a column.
+				</p>
+				<h2>Base</h2>
+				<p>
+					The base is a sheet of 5mm acrylic with holes drilled in it where the wires go through.<br />
+					Underneath the base there are two grids connecting each of the columns, one for 5v and the other for ground. A grid like this allows for the current to be distributed over multiple wires.<br />
+					The first version of the feet was very simple and used epoxy to secure two rectangular pieces of acrylic. They worked but did not hide the wires well and did not look uniform.<br />
+					<img class="main-picture" src="/portfolio/img/ledcube/feetV1.jpg" /><br />
+					I made a second version of the feet which hides the wiring and makes the cube look more complete. It is made from 3D printed parts which are glued together. It also has the ability to angle the cube forward so the whole cube can be seen if it is displayed high up.<br />
+					<img class="main-picture" src="/portfolio/img/ledcube/feetV2.jpg" />
+				</p>
+				<h2>Power</h2>
+				<p>
+					A transformer plugged into the wall is used to supply 5 Volts to the LEDs and microcontroller. It also has to supply a large amount of current.<br />
+					This is due to each LED pulling a maximum of around 60 - 100 mA (when all the channels at max brightness) meaning an absolute maximum total current draw of around 7.5 to 12.5 A.<br />
+					The scenario of the absolute maximum would be highly unlikely, so I chose to get a 5V 10A power supply which gives a large headroom for normal operations.<br />
+					There is a 1m wire going from a fused plug to the transformer and a 2.5m wire that connects the wire to the cube. I chose this long length of wire to give flexibility to where the cube can be placed.
+				</p>
+				<h2>Code</h2>
+				<p>
+					The code is written for Arduino devices and it uses the FastLED library to control the LEDs. The code has basic functions that are needed for the cube such as updating LEDs and changing colours off specific LEDs. The setup function creates the FastLED objects and, in needed, prepares any animations.<br />
+					The state of the cube is stored in an array of 125 objects, each one storing the red, green and blue values of an LEDs. These values are changed or moved before updating the cube to show different colours. The array of RGB values are split up into smaller arrays, which corresponds to the data in pins of the cube, then is sent to said pins.<br />
+					To aid with updating the cube I made a group of functions which I call transforms. There are six main transforms: up, down, left, right, forward and back. They can loop so the LEDs at the end will then be put at the start of the cube. There are two additional functions that move LEDs either clockwise or counter-clockwise around the edge of the cube, used mainly for displaying rolling text.<br />
+					Animations are ran by the cube. They are functions update the lights each time they are called, creating an animation when called multiple times. Most of them use transforms.<br />
+					The wave animation makes a line on the base of the cube which rises and falls, like a wave, changing colours while doing so.<br />
+					A set of animations that all use the FastLED rainbow functions. One sets the colour the cube then changes slowly over time and another does this but each LED starts with a random colour.<br />
+					The last animation I made imitates rain. It does this by having the LEDs at the top start as a blue colour, then the blue colour gets moved to the LED below until they reach the bottom. The base stays blue for a bit before retrning to the top of the cube. During all of these steps the numbers are randomised to make it look as natural as possible, such as which shade of blue, how long the raindrop takes to fall and how long the rain sits at the bottom.<br />
+					For something different I made the cube be able to play the game snake in 3D. It uses an infrared reciever and a TV remote as the controller. Admittedly it would work much better on larger LED cubes than mine but is still interesting to play.<br />
+					<br />
+					This code was a good base to add animations to and was reliable but it had some limitations.<br />
+					The code was in one long file and some of the functions were not easily readable which complicate working on the project. The code is only made for this specific setup and would require a lot of work changing the size or LED order.<br />
+					The microcontroller cannot do anything else while running animations and is unable to dynamically add animations. This means, for example, wireless control would be very hard to implement and would not be able to do much.<br />
+					Due to these drawbacks of the code I made an improved version of the code.<br />
+					<br />
+					The new version of the code uses an object oriented approach which segments the program so it is easier to understand and add to different sections. All of the code was re-written so that most parameters can be changed easily in one place such as LED cube size and pin count.<br />
+					LED_Cube is the main class which handles the setup, playing animations and interfacing with the hardware. It also has other core functions such as setting LEDs and retrieving cube info.<br />
+					<br />
+					Instead of accessing LEDs directly by index, like the old version of the code, LEDs are accessed by using its physical position on the cube with an x, y, and z coordinate, which is much more intuitive and makes understanding the code simpler.<br />
+					The LED_Cube object holds a queue of animations which can be added dynamically. The animations are held in objects and each animation type has its own class. They all inherit from a base animation class and overwrite the animSetup and anim functions.<br />
+					I made the transforms into their own class for simplicity. Each transform now has more settings.<br />
+					With the improvements to the code I rewrote the animations that I previously had, this time with the new classes and made them work with almost any size cube.
+				</p>
+			</div>
+			
+			<div class="row pt-3">
+				<h1 id="future">Looking forward</h1>
+				<ul>
+					<li>I could create a larger cube which would allow for more complex and impressive animations</li>
+					<li>The design could be changed to be more modular and have easier connections</li>
+					<li>The reliability could be improved, for example with capacitors and fuses</li>
+				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="files">Files and Links</h1>
 				<p>
 					<a href="https://github.com/MSchmidt951/LED-Cube">Source Code</a><br />
+					<a href="https://drive.google.com/drive/folders/14EtR4Qhlec4da6xeiWdam_K1A6c4hWzG">Source Code (3D snake)</a>
 				</p>
 			</div>
 		</div>
