@@ -14,10 +14,10 @@
 			<div class="row pt-2">
 				<h1 id="description">Description</h1>
 				<p>
-					This project allows a wii remote to be used on an Xbox.<br />
-					It does this by connecting a wii remote to a laptop via bluetooth, then the laptop to the Xbox.<br />
+					This project allows a Wii remote to be used on an Xbox.<br />
+					It does this by connecting a Wii remote to a laptop via bluetooth, then the laptop to the Xbox.<br />
 					<br />
-					Using a wii remote rather than a normal controller allows for the use of the gyroscope/accelerometer measuring the angle at which the remote is held at.<br />
+					Using a Wii remote instead of a normal controller allows for the use of the motion sensors which measures the angle at which the remote is held at.<br />
 					This provides unique, fun gameplay and can feel more intuitive, for example while driving a car or flying a plane in game.
 				</p>
 			</div>
@@ -25,21 +25,35 @@
 			<div class="row pt-3">
 				<h1 id="skills">Skills</h1>
 				<ul>
-					<li>Documentation coming soon!</li>
+					<li>Interfacing with and emulating input devices</li>
+					<li>Programming in python, including file handling</li>
 				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="features">Closer look</h1>
 				<p>
-					Documentation coming soon!
+					An Xbox is not able to directly connect to a Wii remote. It could be possible by plugging in some hardware to the Xbox, but I wanted to have a solution only with software.<br />
+					A computer is able to connect to an Xbox with a remote play feature, but still needs an Xbox controller for input.<br />
+					As a Wii remote can connect to a computer with bluetooth all that is needed is a program that is able to read the input from the Wii remote and convert it to input from an Xbox controller.<br />
+					<br />
+					My program does this by using the pygame library to retrieve the input of the buttons and motion sensors, then uses a virtual controller (made with the pyxinput library) to send button presses to the Xbox, through remote play.<br />
+					A text file is used to store which controls of the Wii remote translate to which output of the Xbox controller.<br />
+					The controls file can contain two different control schemes, the active scheme is changed by pressing the home button. This can be used for having a different controls for navigating menus, or for different modes during gameplay.<br />
+					Each line of the file holds one button mapping in this syntax: wiiButton:xboxButton. This makes changing and creating controls very easy to understand.<br />
+					<br />
+					Two additional programs were created for this project:
 				</p>
+				<ul>
+					<li>wmTest.py would output every button press and the state of each axis (nunchuck and rotation), it was used to find out the values of each button and to make sure every button is working properly.</li>
+					<li>wmCaliration.py is used to get the minimum, maximum and rest values for the nunchuck and motion sensors. The values from this program are used in the main program.</li>
+				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="files">Files and Links</h1>
 				<p>
-					Documentation coming soon!
+					<a href="https://github.com/MSchmidt951/Wii-Controller-on-Xbox">Source Code</a><br />
 				</p>
 			</div>
 		</div>
