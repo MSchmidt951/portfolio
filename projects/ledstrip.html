@@ -14,13 +14,8 @@
 			<div class="row pt-2">
 				<h1 id="description">Description</h1>
 				<p>
-					<div class="col-4">
-						<img class="main-picture" src="/portfolio/img/ledstrip/" />!Gif of LED strip rainbow
-					</div>
-					<div class="col-8">
-						This project uses an ESP8266 to control multiple individually addressable RGB LED strips and create a WiFi network that can be connected to.
-						The user then can change the settings of the LED strips through a web page while connected to the ESP8266.
-					</div>
+					This project uses an ESP8266 to control multiple individually addressable RGB LED strips and create a WiFi network that can be connected to.<br />
+					The user then can change the settings of the LED strips through a web page while connected to the ESP8266.
 				</p>
 			</div>
 			
@@ -28,22 +23,36 @@
 				<h1 id="skills">Skills</h1>
 				<ul>
 					<li>Use of Internet of Things (IoT) devices</li>
-					<li>Interfacing hardware with microcontrollers</li>
-					<li>Web design</li>
+					<li>Web design for interfacing electronics</li>
 				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="features">Closer look</h1>
 				<p>
-					Documentation coming soon!
+					After the LED strips are plugged in to the device and connected to power the user can connect to a WiFi network where they can access a site to control the LED strips.<br />
+					On this website the user can set the lights of the LED strips, which can be set independently.<br />
+				</p>
+				<h2>Hardware</h2>
+				<p>
+					The LEDs on the LED strip are individually addressable and only require one microcontroller pin to control per LED strip. Two LED strips are supported but many more can easily be added.<br />
+					The microcontroller used is the ESP8266. This is able to be programmed with Arduino code and can create its own WiFi networks and have websites that can call functions which can change the state of the hardware.<br />
+					The electronics are mounted on a perfboard which has a 5 volt regulator. The board can be powered by battery through the regulator, or with USB.<br />
+					<img class="main-picture" src="/portfolio/img/ledstrip/perfboard.jpg" />
+				</p>
+				<h2>Software</h2>
+				<p>
+					The top of the program includes the WiFi name and password, pin numbers and LED strip settings.<br />
+					In the setup the WiFi network is created and the IP address	of the website is set.<br />
+					Request handlers are used to add functionality to the requests from the website to set the mode of the LED strips.<br />
+					Three modes have been implemented: solid, rainbowsolid and rainbow. Solid sets the whole LED strip to one colour, rainbowsolid sets the LED strip to a colour then changes the hue, and rainbow creates a wave of colour that travels through the LED strip. All modes can have the delay set to adjust the speed of the colour change.
 				</p>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="files">Files and Links</h1>
 				<p>
-					Documentation coming soon!
+					<a href="https://github.com/MSchmidt951/WiFi-LED-Strip">Source Code</a><br />
 				</p>
 			</div>
 		</div>
