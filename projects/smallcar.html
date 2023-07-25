@@ -14,30 +14,44 @@
 			<div class="row pt-2">
 				<h1 id="description">Description</h1>
 				<p>
-					The aim of this project was to design and make a prototype of a remote control car that would be as small as possible.<br />
-					I achieved this by 3D printing a chassis where all of the parts, including the four motors and the batteries, slot into.
+					The aim of this project was to design and make a prototype of a remote control car that would be as small as possible, mainly focusing on the chassis design.<br />
+					I achieved the small form factor by 3D printing a chassis where all the parts, including the four motors and the batteries, slot into.<br />
+					It can be controlled with an Xbox remote and has a live camrea feed.
 				</p>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="skills">Skills</h1>
 				<ul>
-					<li>Remote control</li>
-					<li>Using a motor driver</li>
 					<li>Practical 3D printing for use in a larger sytem</li>
+					<li>Compact design</li>
+					<li>Remote control of systems using WiFi</li>
+					<li>Design analysis</li>
 				</ul>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="features">Closer look</h1>
 				<p>
+					I chose a simple design for the car so it would be small and need less development work.<br />
+					A custom PCB could have been made to reduce size further, however this project was aimed at using common, readily available parts.<br />
+					<br />
+					Two Raspberry Pis are used for this project. One has a controller connected to it, the other sending pulse width modulation (PWM) signals to the motor driver.<br />
+					They communicate over WiFi and can send a live video feed from the car.<br />
+					<br />
+					Differential steering is used, which is when the two sides of the car spins at different rates, similar to how tanks steer.<br />
+					This removes the need for extra items to be added to turn the wheels which would take up space.<br />
+					<br />
+					I tested the different parts individually to make sure that they were robust and fitted properly.<br />
+					The design allowed for the parts to slot in and not need any other fixings.<br />
+					The amount of support material was minimalised, only one part needed support material. This lowered printing time and reduced waste.
 				</p>
 			</div>
 			
 			<div class="row pt-3">
 				<h1 id="files">Files and Links</h1>
 				<p>
-					Documentation coming soon!
+					<a href="https://drive.google.com/drive/folders/124Fh0ArFyIke9p1h8o8c1jRSRi3rFWo4?usp=sharing">Source Code</a>
 				</p>
 			</div>
 		</div>
