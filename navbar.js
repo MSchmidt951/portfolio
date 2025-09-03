@@ -1,12 +1,13 @@
 $(document).ready(function(){
 	$('#navigation').load("/portfolio/navbar.html");
-    setTimeout(function(){
-        if (document.location.href.includes("index.html")) {
-            load_navbar_content("header");
-        } else {
-            load_navbar_content("h1");
-        }
-    }, 100);
+});
+
+$(window).on("load", function(){
+    if (document.location.href.includes("index.html")) {
+        load_navbar_content("header");
+    } else {
+        load_navbar_content("h1");
+    }
 });
 
 function load_navbar_content(header_type) {
@@ -25,9 +26,4 @@ function load_navbar_content(header_type) {
             }, 'linear');   
         });
     });
-
-    //Sometimes (probably if the site is not cached) it needs a little time to work
-    if ($("#navbar-content > li").length == 0) {
-        setTimeout(load_navbar_content(header_type), 100);
-    }
 }
