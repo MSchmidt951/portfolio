@@ -1,10 +1,12 @@
 $(document).ready(function(){
 	$('#navigation').load("/portfolio/navbar.html");
-    if (document.location.href.includes("index.html")) {
-        load_navbar_content("header");
-    } else {
-        load_navbar_content("h1");
-    }
+    setTimeout(function(){
+        if (document.location.href.includes("index.html")) {
+            load_navbar_content("header");
+        } else {
+            load_navbar_content("h1");
+        }
+    }, 100);
 });
 
 function load_navbar_content(header_type) {
