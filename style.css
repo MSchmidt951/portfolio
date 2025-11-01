@@ -1,14 +1,23 @@
+* {
+    font-family: 'Ubuntu';
+}
+
+header, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu Mono', monospace;
+}
+
 body {
     background: #F0FAFF;
 }
 
-.container-md {
+.container-lg {
     background: #FFF;
     padding: 30px;
 }
 
 header {
-	margin-top: 55px;
+    scroll-margin: 30px;
+	margin-top: 100px;
 	text-align: center;
 	font-size: 4rem;
 	font-weight: 700;
@@ -23,6 +32,17 @@ h3 {
 	font-size: 1.5rem;
 }
 
+a button {
+    color: #007;
+    text-decoration: underline;
+}
+
+a button:hover {
+    color: #008;
+    text-decoration: none;
+    font-weight: 600;
+}
+
 img {
 	max-width: 100%;
 }
@@ -31,41 +51,52 @@ footer {
 	height: 100px;
 }
 
+li {
+    margin-bottom: 3px;
+}
+
 .row > ul {
 	margin-left: 20px;
 }
 
 figcaption {
     font-weight: 700;
-	margin-left: -20px;
+	margin-left: -22px;
+}
+
+.vl {
+  border-left: 2px solid #395260;
+  padding: 0px;
+  width: 2px;
+  margin: 8px;
+}
+
+.intro, #featured > div, .project-info, .project-card > div {
+    border: 3px solid #395260;
+    background: #DDE6EB;
 }
 
 /* Buttons */
 
 button {
     background: white;
-	border: 2px solid #111;
+	border: 2px solid #263740;
 	margin: 12px;
     margin-bottom: 1px;
 }
 
 button:hover {
-	border: 3px solid #222;
+	border: 3px solid #263740;
 	margin: 11px;
     margin-bottom: 0px;
 }
 
-@media (max-width:700px) {
+@media (max-width: 600px) {
 	button {
-		font-size: .8rem;
+		font-size: .9rem;
 	}
 }
 
-@media (min-width:700px) {
-	button {
-		font-size: 1rem;
-	}
-}
 
 /* Navbar */
 
@@ -76,9 +107,14 @@ button:hover {
 	z-index: 1;
 }
 
+.navbar-brand {
+    margin-right: 12px;
+}
+
 .nav-item {
 	padding-left: .2rem;
-	padding-right: .2rem
+	padding-right: .1rem;
+    margin-bottom: 0px;
 }
 
 #contact {
@@ -88,23 +124,45 @@ button:hover {
 /* Intro */
 
 .intro {
-    background: #DDE6EB;
     padding: 12px;
     margin: -6px;
 	margin-top: 50px;
 }
 
+.intro p {
+    margin-bottom: 0px;
+}
+
+.intro-heading p {
+    margin-bottom: 0px;
+    font-size: 2em;
+}
+
+.intro-heading h1 {
+    text-align: right;
+    margin-top: 0px;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
 .intro-img {
+    padding-bottom: 12px;
+}
+
+.intro-img img {
     max-height: 600px;
-    margin: auto;
     height: auto;
-    padding-bottom: 16px;
+    padding: 24px;
+    border: 4px solid #AEC4D0;
+    border: 4px solid #BCC0C2;
+    /* border: 4px solid #4B6671; /**/
+    /* border: 4px solid #7EA1B4; */
+    /* background: #BCC0C2; /**/
 }
 
 /* Featured project */
 
 #featured > div {
-    background: #DDE6EB;
     padding: 12px;
     margin: 6px;
 }
@@ -130,36 +188,42 @@ button:hover {
 /* Project info */
 
 .project-info {
-    background: #DDE6EB;
-    padding: 12px 0px 12px 0px;
+    padding: 12px 0px 11px 0px;
     margin: 12px -6px 12px -6px;
-    margin-bottom: 6px;
 }
 
 .project-info button {
-    padding-left: 12px;
-    padding-right: 12px;
+    margin-left: 0px;
 }
 
-.project-img > img {
+.project-img > div > img {
     max-height: 450px;
+}
+
+.project-info-buttons {
+    width: 80%;
+    margin-bottom: -16px; 
 }
 
 /* Project card */
 
 .project-card {
-	position: relative;
-	text-align: center;
-	background-color: #DDE6EB; 
-    padding: 12px;
-    padding-top: 6px;
-    border: 6px solid white;
+    padding: 0px;
 }
 
-.project-card div h3 {
+.project-card > div {
+	text-align: center;
+    padding: 12px;
+    padding-top: 6px;
+    margin: 6px;
+    height: 100%;
+}
+
+.project-card h3 {
 	margin-bottom: 6px;
     padding-left: 0px;
     padding-right: 0px;
+    margin: auto;
 }
 
 
@@ -189,19 +253,22 @@ button:hover {
 	opacity: 1;
 }
 
-@media screen and (max-width: 990px) {
-	.project-content p {
-		font-size: 0.8rem;
-	}
-}
-
-
 /* Footer */
 
 footer {
-    background: #DDE6EB;
+    border-top: 3px solid #395260;
 }
 
 #footer > div {
+    background: #DDE6EB;
     margin: 0;
+}
+
+footer img {
+    margin: 12px;
+}
+
+footer img:hover {
+    border: 1px solid #131B20;
+    margin: 11px;
 }

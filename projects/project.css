@@ -1,15 +1,31 @@
-ul > p {
-	margin-left: -15px;
-	margin-bottom: 2px;
+h1 {
+    text-align: left;
 }
 
 p {
 	margin-left: 5px;
 }
 
+ul > p, figcaption {
+	margin-left: -15px;
+	margin-bottom: 2px;
+}
+
+figcaption {
+    font-weight: 700;
+}
+
+li {
+    margin-left: 4px;
+}
+
 .col-6 {
 	margin-left: 5px;
 	margin-right: -5px;
+}
+
+.p-0 h2 {
+    padding-left: 12px;
 }
 
 /* Tables */
@@ -30,19 +46,35 @@ th {
 
 /* Pictures */
 
+div > img, ul > img, li img, p > img, video {
+    border: 3px solid #395260;
+}
+
 .large-picture {
-	border: 1px solid gray;
 	max-height: 90vh;
 }
 
 .main-picture {
-	border: 1px solid gray;
 	max-height: 50vh;
 }
 
 .side-picture {
-	border: 1px solid gray;
 	max-width: 49%;
 	max-height: 33vh;
 	margin-right: 2px;
+}
+
+/* CAD */
+
+.cad > div {
+    padding-bottom: 0px;
+}
+
+.cad img {
+    border: 0;
+}
+
+.cad ul {
+    margin-bottom: 0px;
+    text-align: left;
 }

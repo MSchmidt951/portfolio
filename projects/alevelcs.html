@@ -9,7 +9,7 @@
 	<body>
 		<div id="navigation"></div>
 		<header>Computer Science A Level Project</header>
-		
+
 		<div class="container-xl">
 			<div class="row pt-2">
 				<h1 id="description">Description</h1>
@@ -19,7 +19,7 @@
 					The server runs on Linux with Apache and is designed to be managed by an end user so includes programs to help with usability of the server, for example starting and stopping the server.
 				</p>
 			</div>
-			
+
 			<div class="row pt-3">
 				<h1 id="skills">Skills</h1>
 				<ul>
@@ -29,9 +29,37 @@
 					<li>Use of command line interfaces</li>
 				</ul>
 			</div>
-			
+
 			<div class="row pt-3">
-				<h1 id="features">Closer look</h1>
+                <div class="col">
+                    <h1 id="design">Design</h1>
+                    <ul>
+                        <li>Intention to have all your gaming needs in one place</li>
+                        <li>Home page and search to find games</li>
+                        <li>Rating to tell users what others like</li>
+                        <li>Secure admin access on the site for easy management</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h1>Build</h1>
+                    <ul>
+                        <li>Made templates for game previews so games can be added automatically</li>
+                        <li>Admin login was created to be contolled server side to be secure</li>
+                        <li>Each function of the site is handled within classes to allow for easy building of the site</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h1>Deliver</h1>
+                    <ul>
+                        <li>Tested and deployed with apache, which worked smoothly</li>
+                        <li>Games were able to be uploaded, downloaded and played</li>
+                        <li>Administrative tools were effective</li>
+                    </ul>
+                </div>
+            </div>
+
+			<div class="row pt-3">
+				<h1 id="features">Closer Look</h1>
 				<h2>classes.php</h2>
 				<p>
 					classes.php contains the main portion of the code and is included in almost all web pages. This helps keep the code manageable from one main location.<br />
@@ -39,14 +67,14 @@
 					These contain all the necessary methods for the games such as displaying previews, downloading and running the game on a web page.<br />
 					There are also FAQ, Report and Search classes alongside some miscellaneous functions which will be discussed later.
 				</p>
-					
+
 				<h2>Uploading</h2>
 				<p>
 					On the upload page users can fill in a form containing all the information about the game e.g. name, description, genre.<br />
 					They will also need to upload a zip file containing the game. This will either be a game that will be downloaded and run on the users computer or a game written in javascript that will be able to be run directly on the web.<br />
 					When it is uploaded the game is stored on the server waiting to be reviewed by the administrators before being allowed to be used by the public.
 				</p>
-					
+
 				<h2>Administrators</h2>
 				<p>
 					The administrators can log into the site and control the site without having to access the server directly.<br />
@@ -59,13 +87,13 @@
 					In manageGame.php the admins can approve games (this moves the game out of the pending folder and makes it available to the public) or deny them.<br />
 					Admins can test web games directly from the site on gameTest.php.
 				</p>
-					
+
 				<h2>Downloading and Playing Games</h2>
 				<p>
 					The download page displays information about the game and allows the users to download the game.<br />
 					On play.php the user can play web games. This page also displays similar games.
 				</p>
-					
+
 				<h2>Navbar, Footer and Home</h2>
 				<p>
 					Each page has a navigation bar at the top and a footer at the bottom.<br />
@@ -73,19 +101,19 @@
 					The footer has information about the site and gives a link to the FAQ pages.<br />
 					On the home page users can view new and popular games.
 				</p>
-					
+
 				<h2>Search</h2>
 				<p>
 					Users can search for games and filter them by type, genre, player count and rating.<br />
 					The results can be ordered alphabetically or by upload date, and the order can be reversed too.
 				</p>
-					
+
 				<h2>FAQ</h2>
 				<p>
 					The admins can add FAQs which can be viewed by users.<br />
 					The FAQ page shows a preview for all FAQs. Individual FAQs can be searched for and viewed.
 				</p>
-					
+
 				<h2>Scripts</h2>
 				<p>
 					I wrote a few scripts that assist with running the server:<br />
@@ -93,7 +121,7 @@
 					stop.sh stops the server and manageLoginAttempts.sh.<br />
 					sendEmail.sh sends an email to the administrators, it is used when a game is reported.
 				</p>
-					
+
 				<h2>Log</h2>
 				<p>
 					A logging system exists where the notable activities can be seen. Each log file is for a particular day.<br />
@@ -101,7 +129,7 @@
 					This can help debugging and track how the site is used.
 				</p>
 			</div>
-			
+
 			<div class="row pt-3">
 				<h1 id="files">Files and Links</h1>
 				<p>
@@ -109,8 +137,8 @@
 				</p>
 			</div>
 		</div>
-		
-		<footer></footer>
+
+		<footer id="footer"></footer>
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
