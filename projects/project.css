@@ -46,6 +46,12 @@ th {
 
 /* Pictures */
 
+img {
+    margin: 2px;
+    margin-right: 0px;
+    margin-left: 1px;
+}
+
 div > img, ul > img, li img, p > img, video {
     border: 3px solid #395260;
 }
@@ -61,7 +67,6 @@ div > img, ul > img, li img, p > img, video {
 .side-picture {
 	max-width: 49%;
 	max-height: 33vh;
-	margin-right: 2px;
 }
 
 /* CAD */

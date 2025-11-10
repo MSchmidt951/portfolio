@@ -41,7 +41,7 @@ project_info_builder("#drone-info", "Drone",
         ["Uses an ARM processor with custom software that uses sensor data to control the flight", "Interfaces with the speed controllers to set the motor speeds", "Communicated with a wireless controller", "Logs flight data for analysis and visualisation"],
         ["Created a PCB and software for the flight controller", "Designed the frame for the drone", "Learned how to do multifaceted projects like these", "Designed and 3D printed the frame", "Learned about making different parts of the drone work together"]
     ],
-    "drone/DroneCover.jpg", ["projects/drone.html"]
+    "drone/DroneCover.webp", ["projects/drone.html"]
 );
 project_info_builder("#alevelcs-info", "Gaming Website",
     [
@@ -77,7 +77,7 @@ function project_card_builder(group, title, info, int_name, src_link) {
 
 project_card_builder("hardware", "Multi Purpose Controller", "A wireless controller designed for use with multiple projects", "controller", "");
 project_card_builder("hardware", "Bad USB", "A device that emulates a keyboard which runs a pre-programmed set of key presses to perform a task", "badusb", "");
-project_card_builder("hardware", "LED Cube", "A colourful display piece made of a 5x5x5 grid of RGB LEDs that can run animations", "ledcube", "");
+project_card_builder("hardware", "LED Cube", "A colourful display piece made of a 5x5x5 grid of RGB LEDs that can run animations<br /><br />View project to see it working", "ledcube", "");
 project_card_builder("hardware", "Wi-Fi LED Strip", "A device to control multiple RGB LED strips over WiFi", "ledstrip", "");
 
 project_card_builder("software", "A* Visualiser", "A program visualising the A* pathfinding algorithm", "astar", "https://github.com/MSchmidt951/A-Star-Visualiser");

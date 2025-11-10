@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="/portfolio/style.css">
+		<link rel="stylesheet" href="../style.css">
 		<link rel="stylesheet" href="project.css">
 		<title>BadUSB</title>
 	</head>
@@ -33,7 +33,7 @@
 			<div class="row pt-3">
 				<h1 id="features">Closer Look</h1>
 				<p>
-					<img class="main-picture" src="/portfolio/img/badusb/case open.jpg" /><br  />
+					<img class="main-picture" src="../img/badusb/case open.webp" /><br  />
 					The main design considerations for the printed circuit board is the small form factor, to make it look like other USB thumb drives.<br  />
 					To achieve this goal I needed to use SMD parts which can be very small and only take up one side of the board, compared to the larger through hole devices.<br  />
 					A downside for these components is some of them can be hard to solder without bridging the connections.<br  />
@@ -55,7 +55,7 @@
 					This gives the board more functionality as it can be used as a normal Arduino or connect more devices to it.
 				</p>
 				<p>
-					<img class="main-picture" src="/portfolio/img/badusb/case.jpg" /><br  />
+					<img class="main-picture" src="../img/badusb/case.webp" /><br  />
 					The device sits inside a 3D printed case to give it a layer of protection and makes the BadUSB looks professional while maintaining usability.
 				</p>
 			</div>
@@ -67,16 +67,16 @@
 					This was my first PCB design, so I had to learn how to convert circuit schematics into a functioning PCB.<br  />
 					It was a test PCB and improvements were expected to be found when making and testing this design.<br  />
 					This is a sketch that I used to help plan the schematic and layout:<br  />
-					<img class="main-picture" src="/portfolio/img/badusb/plan.jpg" /><br  />
+					<img class="main-picture" src="../img/badusb/plan.webp" /><br  />
 					I started with the main component, the ATmega32u4, which requires multiple passive components to function properly.<br  />
 					Then I added the USB which gives the device power and data connections to the board. It was placed next to the microcontroller so the data lines would not have interference from other components or traces.<br  />
 					The rest of the components could be placed almost anywhere so were placed on the other side of the microcontroller.<br  />
 					<br  />
 					Schematic:<br  />
-					<img class="main-picture" src="/portfolio/img/badusb/v1 schematic.jpg" /><br  />
+					<img class="main-picture" src="../img/badusb/v1 schematic.webp" /><br  />
 					The soldered PCB:<br  />
-					<img class="side-picture" src="/portfolio/img/badusb/v1 top.jpg" />
-					<img class="side-picture" src="/portfolio/img/badusb/v1 bottom.jpg" /><br  />
+					<img class="side-picture" src="../img/badusb/v1 top.webp" />
+					<img class="side-picture" src="../img/badusb/v1 bottom.webp" /><br  />
 					<br  />
 					This version had reliability issues but managed to function enough to validate the concept. There were some other issues such as inconsistent component sizes, for example having a small oscillator with very large capacitors.
 				</p>
@@ -89,10 +89,10 @@
 					Lastly I improved the silkscreen for better readability when soldering and using the device, and changed the PCB colour from green to black for a more professional look.<br  />
 					<br  />
 					Schematic:<br  />
-					<img class="main-picture" src="/portfolio/img/badusb/v2 schematic.jpg" /><br  />
+					<img class="main-picture" src="../img/badusb/v2 schematic.webp" /><br  />
 					The soldered PCB:<br  />
-					<img class="side-picture" src="/portfolio/img/badusb/v2 top.jpg" />
-					<img class="side-picture" src="/portfolio/img/badusb/v2 bottom.jpg" /><br  />
+					<img class="side-picture" src="../img/badusb/v2 top.webp" />
+					<img class="side-picture" src="../img/badusb/v2 bottom.webp" /><br  />
 					<br  />
 					I was pleased with this design as it met the design goals while still managing to have features, such as the I/O pins, for it to be used beyond its intended purpose.
 				</p>
@@ -116,6 +116,6 @@
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="/portfolio/navbar.js"></script>
+		<script src="../navbar.js"></script>
 	</body>
 </html>

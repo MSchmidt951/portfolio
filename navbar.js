@@ -1,5 +1,5 @@
-$(window).on("load", function(){
-    if (document.location.href.includes("index.html")) {
+$(function(){
+    if (document.location.href.includes("index.html") || !document.location.href.includes(".html")) {
         load_navbar_content("header");
     } else {
         load_navbar_content("h1");
