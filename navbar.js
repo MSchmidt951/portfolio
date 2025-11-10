@@ -67,7 +67,7 @@ function load_footer_content() {
             </div>
         </div>
     `
-    if (document.location.href.includes("index.html")) {
+    if (document.location.href.includes("index.html") || !document.location.href.includes(".html")) {
         footer = footer.replaceAll("LOCATION", "")
     } else {
         footer = footer.replaceAll("LOCATION", "../")
